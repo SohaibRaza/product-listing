@@ -2,14 +2,12 @@
 
 ## Table of Contents
 
-- [Products Listing](#products-listing)
-  - [Table of Contents](#table-of-contents)
-  - [Folder Structure](#folder-structure)
-  - [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [Running Tests](#running-tests)
+- [Folder Structure](#folder-structure)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Running Tests](#running-tests)
 
 
 ## Folder Structure
@@ -50,7 +48,7 @@ Make sure you have the following prerequisites installed:
 2. Navigate to the project directory:
 
     ```bash
-    cd your-project
+    cd product-listing
     ```
 
 3. Install project dependencies:
