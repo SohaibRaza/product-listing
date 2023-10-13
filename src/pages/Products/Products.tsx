@@ -18,12 +18,14 @@ export const ProductsPage: React.FC = () => {
 
   useEffect(() => {
     let newTotalPrice = 0;
+
     for (const productId in cart) {
       const product = products.find((p) => p.id.toString() === productId);
       if (product) {
         newTotalPrice += product.price * cart[productId];
       }
     }
+
     setTotalPrice(newTotalPrice);
   }, [cart, products]);
 
