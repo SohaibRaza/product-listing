@@ -19,9 +19,9 @@ const ProductItem: React.FC<ProductItemProps> = ({
   cart,
 }) => {
   return (
-    <Card className="w-full" hoverable>
-      <div className="flex justify-between items-center">
-        <div className="flex gap-4">
+    <Card className="w-full bg-gray-800 border-neutral-800 text-white" hoverable>
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-8 dark:bg-black">
+        <div className="flex flex-col 2xs:flex-row items-center 2xs:items-start gap-4">
           <div className="">
             <img
               alt={product.name}

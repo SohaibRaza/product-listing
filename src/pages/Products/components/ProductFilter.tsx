@@ -15,19 +15,23 @@ export default function ProductFilter({
   onClear,
 }: ProductFilterProps) {
   return (
-    <>
+    <div className="flex flex-col 2xs:flex-row 2xs:items-center gap-3 mb-4">
+      <label htmlFor="filter-by-color">Filter by Color</label>
       <Select
-        className="w-48 mb-4"
+        className="w-48"
+        id="filter-by-color"
         placeholder="Filter by Color"
         value={selectedColor}
         onChange={onChange}
         data-testid="color-filter-select"
       >
+        <Option value={null} default>
+          All
+        </Option>
         <Option value="Black">Black</Option>
         <Option value="Stone">Stone</Option>
         <Option value="Red">Red</Option>
       </Select>
-      <Button onClick={onClear}>Clear</Button>
-    </>
+    </div>
   );
 }

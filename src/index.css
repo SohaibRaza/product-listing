@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+.dark-mode {
+  @apply bg-gray-900 text-white;
+}
+
+.dark-mode a {
+  @apply text-blue-300;
+}
+
 html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;

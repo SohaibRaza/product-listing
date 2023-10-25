@@ -9,6 +9,7 @@ export const ProductsPage: React.FC = () => {
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
   const [cart, setCart] = useState<Record<string, number>>({});
   const [totalPrice, setTotalPrice] = useState(0);
+  const [totalItems, setTotalItems] = useState(0);
 
   useEffect(() => {
     fetchProducts()
@@ -28,6 +29,16 @@ export const ProductsPage: React.FC = () => {
 
     setTotalPrice(newTotalPrice);
   }, [cart, products]);
+
+  useEffect(() => {
+    let newTotalItems = 0;
+
+    for (const quantity of Object.values(cart)) {
+      newTotalItems += quantity;
+    }
+
+    setTotalItems(newTotalItems);
+  }, [cart]);
 
   const handleColorChange = (value: string) => {
     setSelectedColor(value);
@@ -73,22 +84,24 @@ export const ProductsPage: React.FC = () => {
 
   return (
     <div className="container mx-auto max-w-screen-xl overflow-x-hidden">
-      <header className="App-header">
-        <h1>Product Listing Page</h1>
-      </header>
+      <div className="px-3">
+        <header className="App-header">
+          <h1>Product Listing</h1>
+        </header>
+        <div className="flex gap-3">
+          <ProductFilter
+            selectedColor={selectedColor}
+            onChange={handleColorChange}
+            onClear={() => setSelectedColor(null)}
+          />
+        </div>
+      </div>
       <main>
         <section
           className={`min-h-screen flex flex-col ${
-            totalPrice ? "mb-[144px]" : ""
+            totalPrice ? "mb-[160px]" : ""
           }`}
         >
-          <div className="flex gap-3">
-            <ProductFilter
-              selectedColor={selectedColor}
-              onChange={handleColorChange}
-              onClear={() => setSelectedColor(null)}
-            />
-          </div>
           <List
             dataSource={filteredProducts}
             renderItem={(product: Record<string, any>) => (
@@ -112,10 +125,21 @@ export const ProductsPage: React.FC = () => {
       </main>
 
       {totalPrice > 0 && (
-        <footer className="fixed bottom-0 left-0 right-0 bg-white p-4 border-t border-gray-300 shadow-top">
-          <div className="container mx-auto max-w-screen-xl flex flex-col items-end">
-            <h3>Total:</h3>
-            <p>$ {totalPrice.toFixed(2)}</p>
+        <footer className="fixed bottom-0 left-0 right-0 bg-gray-800 p-4 py-0 2xs:py-4 border-t border-gray-300 shadow-top">
+          <div className="container mx-auto max-w-screen-xl flex flex-col items-center">
+            <h3 className="mb-2">Total:</h3>
+            <table>
+              <tbody>
+                <tr>
+                  <td className="p-1">Items:</td>
+                  <td className="p-1">{totalItems}</td>
+                </tr>
+                <tr>
+                  <td className="p-1">Price:</td>
+                  <td className="p-1">${totalPrice.toFixed(2)}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </footer>
       )}
