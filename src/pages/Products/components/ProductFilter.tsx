@@ -20,12 +20,12 @@ export default function ProductFilter({
       <Select
         className="w-48"
         id="filter-by-color"
-        placeholder="Filter by Color"
+        placeholder="Select Color"
         value={selectedColor}
         onChange={onChange}
         data-testid="color-filter-select"
       >
-        <Option value={null} default>
+        <Option value={""} default>
           All
         </Option>
         <Option value="Black">Black</Option>

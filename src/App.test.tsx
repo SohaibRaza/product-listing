@@ -22,7 +22,7 @@ jest.mock('./services/productService', () => ({
 describe('App', () => {
   it('renders the header', () => {
     render(<App />);
-    expect(screen.getByText('Product Listing Page')).toBeInTheDocument();
+    expect(screen.getByText('Product Listing')).toBeInTheDocument();
   });
 
   it('fetches products and displays them', async () => {

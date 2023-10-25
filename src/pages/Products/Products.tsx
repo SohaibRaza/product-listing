@@ -1,8 +1,9 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { List } from "antd";
-import { fetchProducts } from "../../services/productService";
-import ProductItem from "../../components/ProductCard";
-import ProductFilter from "./components/ProductFilter";
+import { List } from 'antd';
+import React, { useCallback, useEffect, useState } from 'react';
+
+import ProductItem from '../../components/ProductCard';
+import { fetchProducts } from '../../services/productService';
+import ProductFilter from './components/ProductFilter';
 
 export const ProductsPage: React.FC = () => {
   const [products, setProducts] = useState<any[]>([]);
